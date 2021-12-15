@@ -6,15 +6,10 @@ import './css/login.css'
 export default function Login() {
     const [username, setUsername] = useState('');
 
-      const getUser = async () => {
-        const dataUser  = await fetch(`https://animalfinderapi.herokuapp.com/user/${username}`)
-        return await dataUser.json();
-      };
-
     function onChange(e) {
         setUsername(e.target.value)
     }
-    
+
     const pressEnregistrer = async () => {
         const users = await getUser();
         console.log(users)
@@ -32,7 +27,12 @@ export default function Login() {
         window.location.reload(); 
     }
 
-    console.log(username);
+    const getUser = async () => {
+        const dataUser  = await fetch(`https://animalfinderapi.herokuapp.com/user/${username}`)
+        return await dataUser.json();
+      };
+
+    // console.log(username);
     return (
         <div className='centerLogin'>
             <input placeholder='Choisis ton pseudo !' value={username} onChange={onChange} ></input>

@@ -57,8 +57,8 @@ export default function Play(props) {
         return (
             <div>
                 <Word wordUsed={word} usedLetter={usedLetter} />
-                <p> Write your letters</p>
-                <p> The test number has been used, it's lose !</p>
+                <p> Ecrire vos lettres </p>
+                <p> Les nombre d'essai est utilisé, c'est perdu !</p>
                 <h3> Classement des joueurs </h3>
                 {
                 classment.map( (element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
@@ -71,11 +71,12 @@ export default function Play(props) {
         return (
             <div>
                 <Word wordUsed={word} usedLetter={usedLetter} />
-                <p> Write your letters</p>
-                <p> It's win !</p>
+                <p> Ecrire vos lettres </p>
+                <p> C'est gagné !</p>
                 <h3> Classement des joueurs </h3>                
                 {
                     // classment.map((element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
+                    /*  Lorsque je décommente cette ligne mon app ne charge pas *_*    */
                 }
             </div>
         )
@@ -84,7 +85,7 @@ export default function Play(props) {
         <div>
             <Word wordUsed={word} usedLetter={usedLetter} />
             <p> Vous avez {score} essai(s) restant pour trouvé le mot </p>
-            <p> Voici les lettes essayer : {usedLetter + ','}</p>
+            <p> Lettres utilisées : {usedLetter + ','}</p>
             <p> Ecrit tes lettres :</p>
             <input style={{backgroundColor: "#3CBC8D", color:'#fff'}}type="text" onKeyPress={handleLetterPress} />
             <h3> Classement des joueurs </h3>

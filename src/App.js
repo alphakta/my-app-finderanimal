@@ -52,6 +52,7 @@ function App() {
       <h1>Animal Finder</h1>
       <p>Trouve l'animal pour gagné des points</p>
       <Play word={word.word}/>
+
     </div>
   );
 }
