@@ -75,7 +75,7 @@ export default function Play(props) {
                 <p> C'est gagné !</p>
                 <h3> Classement des joueurs </h3>                
                 {
-                    // classment.map((element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
+                    classment.map((element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
                     /*  Lorsque je décommente cette ligne mon app ne charge pas *_*    */
                 }
             </div>
