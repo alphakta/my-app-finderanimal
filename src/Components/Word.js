@@ -1,7 +1,6 @@
 import React from 'react'
 import './css/word.css'
 
-
 export default function Word({ wordUsed, usedLetter}) {
     return (
         <div className='test'>
