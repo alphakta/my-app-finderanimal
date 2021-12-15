@@ -48,7 +48,7 @@ export default function Play(props) {
             setScore(score - 1)
     }
 
-    console.log(classment);
+    console.log(word, classment);
 
     if (word === undefined && classment === undefined)
         return <p>waiting</p>
@@ -70,23 +70,23 @@ export default function Play(props) {
     if(verifWin())
         return (
             <div>
-            <Word wordUsed={word} usedLetter={usedLetter} />
-            <p> Write your letters</p>
-            <p> It's win !</p>
-            <h3> Classement des joueurs </h3>
-            {
-            classment.map( (element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
-            }
-        </div>
+                <Word wordUsed={word} usedLetter={usedLetter} />
+                <p> Write your letters</p>
+                <p> It's win !</p>
+                <h3> Classement des joueurs </h3>                
+                {
+                    // classment.map((element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))
+                }
+            </div>
         )
 
     return (
         <div>
             <Word wordUsed={word} usedLetter={usedLetter} />
-            <p> Vous avez {score} essai(s) for find the word. </p>
+            <p> Vous avez {score} essai(s) restant pour trouvé le mot </p>
             <p> Voici les lettes essayer : {usedLetter + ','}</p>
-            <p> Write your letters</p>
-            <input type="text" onKeyPress={handleLetterPress} />
+            <p> Ecrit tes lettres :</p>
+            <input style={{backgroundColor: "#3CBC8D", color:'#fff'}}type="text" onKeyPress={handleLetterPress} />
             <h3> Classement des joueurs </h3>
             {
             classment.map( (element) => (<Card username={element.username} avatar={element.avatar} score={element.score} />))

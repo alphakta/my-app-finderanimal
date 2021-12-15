@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './App.css';
 import Play from './Components/Play';
+import Login from './Components/Login';
+import { ThemeContext } from './contexts/theme';
  
 
 function App() {
+  const [username, setUsername] = useState(localStorage.getItem("username") || undefined)
+  const [{theme, isDark}, toggleTheme] = useContext(ThemeContext)
   const [word, setWord] = useState(undefined)
 
   useEffect(() => {
@@ -23,8 +27,18 @@ function App() {
   if(!word)
     return <p> waiting </p>
 
+  if(username == undefined)
+    return(
+      <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color, position: 'relative' }}>
+      <h1>Animal Finder</h1>
+      <p>Trouve l'animal pour gagné des points</p>
+        <Login username={username}/>
+      </div>
+    )
+
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color, position: 'relative' }}>
+      <button className="toggleButton" onClick={toggleTheme}> {isDark ? "Sombre" : "Clair"}</button>
       <h1>Animal Finder</h1>
       <p>Trouve l'animal pour gagné des points</p>
       <Play word={word.word}/>
